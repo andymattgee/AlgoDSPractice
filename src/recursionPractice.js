@@ -16,3 +16,7 @@ function reverseStringRecursive(str) {
     }
     return reverseStringRecursive(str.slice(1)) + str[0]
 }
+
+function factorialRecursive(num) {
+
+}
