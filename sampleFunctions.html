@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>My Algo Practice - Test Suite</title>
+  <!-- Load Mocha’s CSS for test results formatting -->
+  <link rel="stylesheet" href="node_modules/mocha/mocha.css" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Where Mocha will display its test report -->
+  <div id="mocha"></div>
+
+  <!-- Load Mocha (the test runner) -->
+  <script src="node_modules/mocha/mocha.js"></script>
+  <script>
+    // Set up Mocha for BDD style
+    mocha.setup('bdd');
+  </script>
+
+  <!-- Load Chai from a CDN (UMD version) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.4/chai.min.js"></script>
+  <script>
+    // Create a global 'expect' variable for convenience
+    const expect = chai.expect;
+  </script>
+
+  <!-- Load your JavaScript solution(s) -->
+  <script src="src/sampleFunctions.js"></script>
+  
+
+  <!-- Load your test file(s) -->
+  <script src="test/sampleFunctions.test.js"></script>
+ 
+
+  <!-- Run the tests and display results in #mocha -->
+  <script>
+    mocha.run();
+  </script>
+</body>
+</html>

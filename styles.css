@@ -1,0 +1,21 @@
+body {
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+  
+  #mocha {
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Customize the appearance of passing and failing tests */
+  .test.pass {
+    color: green;
+  }
+  .test.fail {
+    color: red;
+  }
