@@ -28,3 +28,20 @@ describe('reverseStringRecursive', function() {
       expect(result).to.equal('a');
     });
   });
+
+  describe('factorialRecursive', function() {
+    it('should return the factorial of a number', function() {
+      const result = factorialRecursive(5);
+      expect(result).to.equal(120);
+    });
+  
+    it('should return 1 for 0', function() {
+      const result = factorialRecursive(0);
+      expect(result).to.equal(1);
+    });
+  
+    it('should return 1 for 1', function() {
+      const result = factorialRecursive(1);
+      expect(result).to.equal(1);
+    });
+  });
