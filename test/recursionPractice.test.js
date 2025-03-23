@@ -149,3 +149,20 @@ describe('reverseString', function() {
     });
 
   });
+
+  describe('range', function() {  
+    it('should return an array of numbers from start to end', function() {
+      const result = range(1, 5);
+      expect(result).to.deep.equal([1, 2, 3, 4, 5]);
+    });
+  
+    it('should return an empty array if start is greater than end', function() {
+      const result = range(5, 1);
+      expect(result).to.deep.equal([]);
+    });
+  
+    it('should return an array with a single number if start and end are the same', function() {
+      const result = range(5, 5);
+      expect(result).to.deep.equal([5]);
+    });
+  });
