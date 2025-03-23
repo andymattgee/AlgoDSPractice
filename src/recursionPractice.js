@@ -49,3 +49,9 @@ function isPrime(num) {
 function fibonacci(num) {
     
 }
+
+//given two numbers, return an array of numbers from start to end
+//start will always be less than or equal to end
+function range(start, end) {
+    
+}
