@@ -55,3 +55,11 @@ function fibonacci(num) {
 function range(start, end) {
     
 }
+
+//given a string, return the number of vowels (a, e, i, o, u) in the string
+
+//given a nested array, return a single flattened array using recursion
+//Ex: [1, [2, [3, 4]], 5] -> [1, 2, 3, 4, 5]
+function flattenArray(arr) {
+   
+}

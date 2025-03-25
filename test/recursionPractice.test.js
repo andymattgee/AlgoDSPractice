@@ -8,8 +8,6 @@ describe('countdown', function() {
     const result = countdown(0);
     expect(result).to.deep.equal([0]);
   });
-
-
 });
 
 describe('palindromeChecker', function() {
@@ -24,8 +22,6 @@ describe('palindromeChecker', function() {
       expect(result).to.equal(false);
     }); 
 });
-
-
 
 describe('reverseString', function() {
     it('should reverse a simple string', function() {
@@ -42,9 +38,9 @@ describe('reverseString', function() {
       const result = reverseString('a');
       expect(result).to.equal('a');
     });
-  });
+});
 
-  describe('factorial', function() {
+describe('factorial', function() {
     it('should return the factorial of a number', function() {
       const result = factorial(5);
       expect(result).to.equal(120);
@@ -59,9 +55,9 @@ describe('reverseString', function() {
       const result = factorial(1);
       expect(result).to.equal(1);
     });
-  });
+});
 
-  describe('sumDigits', function() {
+describe('sumDigits', function() {
     it('should return the sum of digits in a number', function() {
       const result = sumDigits(123);
       expect(result).to.equal(6);
@@ -76,9 +72,9 @@ describe('reverseString', function() {
       const result = sumDigits(1);
       expect(result).to.equal(1);
     });
-  });
+});
 
-  describe('arraySum', function() {
+describe('arraySum', function() {
     it('should return the sum of an array of numbers', function() {
       const result = arraySum([1, 2, 3]);
       expect(result).to.equal(6);
@@ -103,9 +99,9 @@ describe('reverseString', function() {
         const result = arraySum([5]);
         expect(result).to.equal(5);
       });
-  });
+});
 
-  describe('isPrime', function() {
+describe('isPrime', function() {
     it('should return true for a prime number', function() {
       const result = isPrime(7);
       expect(result).to.equal(true);
@@ -130,9 +126,9 @@ describe('reverseString', function() {
         const result = isPrime(0);
         expect(result).to.equal(false);
       });
-  });
+});
 
-  describe('fibonacci', function() {
+describe('fibonacci', function() {
     it('should return the nth fibonacci number', function() {
       const result = fibonacci(5);
       expect(result).to.equal(5);
@@ -147,10 +143,9 @@ describe('reverseString', function() {
       const result = fibonacci(1);
       expect(result).to.equal(1);
     });
+});
 
-  });
-
-  describe('range', function() {  
+describe('range', function() {  
     it('should return an array of numbers from start to end', function() {
       const result = range(1, 5);
       expect(result).to.deep.equal([1, 2, 3, 4, 5]);
@@ -165,4 +160,48 @@ describe('reverseString', function() {
       const result = range(5, 5);
       expect(result).to.deep.equal([5]);
     });
+});
+
+describe('countVowels', function() {
+  it('should return the correct number of vowels in a string', function() {
+    const result = countVowels('hello');
+    expect(result).to.equal(2);
   });
+
+  it('should return 0 for a string with no vowels', function() {
+    const result = countVowels('rhythm');
+    expect(result).to.equal(0);
+  });
+
+  it('should be case insensitive', function() {
+    const result = countVowels('AEiou');
+    expect(result).to.equal(5);
+  });
+
+  it('should return 0 for an empty string', function() {
+    const result = countVowels('');
+    expect(result).to.equal(0);
+  });
+});
+
+describe('flattenArray', function() {
+  it('should flatten a nested array', function() {
+    const result = flattenArray([1, [2, [3, 4]], 5]);
+    expect(result).to.deep.equal([1, 2, 3, 4, 5]);
+  });
+
+  it('should handle already flat arrays', function() {
+    const result = flattenArray([1, 2, 3]);
+    expect(result).to.deep.equal([1, 2, 3]);
+  });
+
+  it('should handle empty arrays', function() {
+    const result = flattenArray([]);
+    expect(result).to.deep.equal([]);
+  });
+
+  it('should handle deeply nested arrays', function() {
+    const result = flattenArray([[1], [[2]], [[[3]]]]);
+    expect(result).to.deep.equal([1, 2, 3]);
+  });
+});
