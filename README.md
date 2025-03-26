@@ -2,7 +2,7 @@
 
 ## About This Repo
 
-This repository is a central place for me to work on various algorithm problems—all in one location. I created it not only to keep my algorithm practice organized but also to experiment with testing frameworks like Mocha and Chai. Whether you’re looking to practice recursion, array manipulation, string processing, or other algorithm challenges, this suite has a dedicated setup for each topic.
+This repository is a central place for me to work on various algorithm problems—all in one location. I created it not only to keep my algorithm practice organized but also to experiment with testing frameworks like Mocha and Chai. 
 
 ## Repository Structure
 
