@@ -11,5 +11,5 @@ function addTwo(num){
 
 
 function printString(str){
-    
+    return str;
 }

@@ -1,5 +1,7 @@
 //will be where Mocha/Chai tests will go
 // test/myFunctions.test.js
+describe('Sample Functions', function() {
+
 
   describe('addTwo', function() {
     it('should add two numbers', function() {
@@ -28,4 +30,4 @@ describe('printString', function() {
       expect(result).to.equal('');
     });
   })
-  
+})
