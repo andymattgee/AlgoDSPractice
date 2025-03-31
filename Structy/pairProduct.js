@@ -26,7 +26,17 @@
 
 const pairProduct = (numbers, targetProduct) => {
   // TODO: Implement the pair product logic here
-  
+  let seen = {};
+  for( let i = 0; i < numbers.length; i++){
+    let currNum = numbers[i];
+    let compliment = targetProduct/currNum;
+    if( seen[compliment]){
+        return [seen[compliment], i];
+    } else {
+        seen[currNum] = i;
+    }
+  }
+  return null;
 };
 
 // --- Test Cases --- 
