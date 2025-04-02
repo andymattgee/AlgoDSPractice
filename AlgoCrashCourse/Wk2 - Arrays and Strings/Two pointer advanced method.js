@@ -83,22 +83,21 @@
  * - If `nums[fast]` is different from `nums[slow]`, it's a unique element.
  *   Increment `slow` and copy `nums[fast]` to `nums[slow]`.
  */
+
+
 const removeDuplicates = (nums) => {
-  if (!nums || nums.length === 0) {
-    return 0;
-  }
+  if (!nums.length) return 0;
 
-  let slow = 0; // Pointer for the position of the last unique element found
-
-  for (let fast = 1; fast < nums.length; fast++) {
-    if (nums[fast] !== nums[slow]) {
+  let slow = 0;
+  for( let i = 1; i < nums.length; i++){
+    if (nums[slow] !== nums[i]){
       slow++;
-      nums[slow] = nums[fast]; // Place the unique element at the slow pointer position
+      nums[slow] = nums[i];
     }
   }
-
-  // The length of the array with unique elements is slow + 1
-  return slow + 1;
+  
+return slow + 1;
+ 
 };
 
 // Practice Environment for removeDuplicates
@@ -130,27 +129,70 @@ console.log("\n");
  * - Fill the rest of the array (from `insertPos` to the end) with zeroes.
  */
 const moveZeroes = (nums) => {
-  if (!nums || nums.length === 0) {
-    return;
-  }
+  //MY FIRST ATTEMPT
+  // Initialize the 'slow' pointer at the beginning of the array.
+  // This pointer marks the boundary between processed non-zero elements
+  // and the area where the next non-zero element should be placed.
+  let slow = 0;
 
-  let insertPos = 0; // Pointer for the position to insert the next non-zero element
+  // Iterate through the array with the 'fast' pointer, starting from the second element.
+  for( let fast = 1; fast < nums.length; fast++){
+    // If the element at the 'slow' pointer is NOT zero, it means this position
+    // already holds a non-zero number in its correct relative place.
+    // So, we advance 'slow' to find the next potential position for a swap (which might contain a zero).
+    if( nums[slow] !== 0) slow++;
 
-  // First pass: Move all non-zero elements to the front
-  for (let current = 0; current < nums.length; current++) {
-    if (nums[current] !== 0) {
-      nums[insertPos] = nums[current];
-      insertPos++;
+    // Check if the 'slow' pointer is at a zero AND the 'fast' pointer is at a non-zero number.
+    // This is the condition for performing a swap.
+    if(nums[slow] === 0 && nums[fast] !== 0){
+      // Swap the non-zero element (at 'fast') with the zero element (at 'slow').
+      // This moves the non-zero element towards the front of the array.
+      [nums[slow],nums[fast]] = [nums[fast],nums[slow]];
+      // After the swap, the 'slow' position now correctly holds a non-zero element.
+      // Advance 'slow' to the next position, ready for the next non-zero element.
+      slow++;
     }
+    // If nums[slow] is non-zero, the first `if` handles advancing `slow`.
+    // If nums[slow] is zero and nums[fast] is also zero, no swap happens, and `slow` stays put,
+    // waiting for a non-zero element to be found by `fast`.
   }
+  // After the loop, all non-zero elements are grouped at the beginning,
+  // and all zeros are grouped at the end, maintaining relative order.
+  return nums
+}
+// *********** METHOD BELOW MY FAVORITE
+//another solution ************
+//GPT METHOD THAT'S VERY CLEAN -> continually swaps if fast location is non zero
+// let j = 0; // points to where the next non-zero should go
+// for (let i = 0; i < nums.length; i++) {
+//   if (nums[i] !== 0) {
+//     // swap only if needed
+//     [nums[i], nums[j]] = [nums[j], nums[i]];
+//     j++;
+//   }
+// }
+// return nums;
+// ************************************************
+  //another solution
+//ANOTHER SOLUTION
+//     let i = 0;  // pointer for placing the next non-zero
+    
+//     // Move non-zero values to the front
+//     for (let j = 0; j < nums.length; j++) {
+//       if (nums[j] !== 0) {
+//         nums[i] = nums[j];
+//         i++;
+//       }
+//     }
+    
+//     // Fill the remaining positions with zeros
+//     while (i < nums.length) {
+//       nums[i] = 0;
+//       i++;
+//     }
+//   return nums;
+// };
 
-  // Second pass: Fill the remaining positions with zeroes
-  while (insertPos < nums.length) {
-    nums[insertPos] = 0;
-    insertPos++;
-  }
-  // No return value needed as modification is in-place
-};
 
 // Practice Environment for moveZeroes
 console.log("--- Move Zeroes (LeetCode 283) ---");
@@ -192,32 +234,20 @@ console.log("\n");
  * - Repeat until `left` meets `right`.
  */
 const maxArea = (height) => {
-  if (!height || height.length < 2) {
-    return 0;
-  }
-
+  //initiate 2 pointers
   let left = 0;
   let right = height.length - 1;
-  let maxWater = 0;
-
-  while (left < right) {
-    // Calculate width and height
-    const currentWidth = right - left;
-    const currentHeight = Math.min(height[left], height[right]);
-
-    // Calculate current area and update maxWater if needed
-    const currentArea = currentWidth * currentHeight;
-    maxWater = Math.max(maxWater, currentArea);
-
-    // Move the pointer pointing to the shorter line
-    if (height[left] < height[right]) {
-      left++;
-    } else {
-      right--;
-    }
+  let maxArea = 0;
+  //loop will exit when pointers meet
+  while(left < right){
+    let currHeight = Math.min(height[left],height[right]);
+    let width = right - left;
+    let currArea = currHeight * width;
+    if(currArea > maxArea) maxArea = currArea;
+    left < right? left++ : right--;
   }
+  return maxArea;
 
-  return maxWater;
 };
 
 // Practice Environment for maxArea
