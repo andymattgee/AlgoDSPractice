@@ -37,7 +37,9 @@ const anagrams = (s1, s2) => {
     count[letter] = 1;
   }
 }
-  //iterate through s2 and check 
+  //iterate through s2 and check if letter is in count
+  //if letter is in count, decrement count
+  //if letter is not in count, return false
   for( letter of s2.toLowerCase()){
     if( letter in count){
         count[letter]--
@@ -45,6 +47,8 @@ const anagrams = (s1, s2) => {
         return false;
     }
   }
+  //check if any letter count is not 0
+  //if any letter count is not 0, return false
   for( let number of Object.values(count)){
     if(number !== 0) return false;
   }
