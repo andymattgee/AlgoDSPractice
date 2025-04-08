@@ -63,7 +63,16 @@ function hasCycle(head) {
     return false; // No cycle if list is empty or has only one node
   }
   console.log("Input list head value (if exists):", head ? head.val : 'null');
-  return false; // Placeholder
+  //initialize pointers to head and 2nd node
+    let slow = this.head;
+    let fast = this.head.next;
+    //
+  while( fast && fast.next){
+    if(slow === fast) return true;
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return false;
 }
 
 /**
@@ -94,7 +103,27 @@ function detectCycleStart(head) {
   // Phase 1: Detect cycle and find meeting point.
   // Phase 2: Find the start of the cycle.
   console.log("Input list head value (if exists):", head ? head.val : 'null');
-  return null; // Placeholder
+  if (!head || !head.next) return null;
+
+let slow = head;
+let fast = head;
+
+// Step 1: Detect if a cycle exists
+while (fast && fast.next) {
+  slow = slow.next;
+  fast = fast.next.next;
+  if (slow === fast) {
+    // Step 2: Reset one pointer to head
+    slow = head;
+    while (fast !== slow) {
+      fast = fast.next;
+      slow = slow.next;
+    }
+    return slow;
+  }
+}
+
+return null;
 }
 
 
