@@ -75,6 +75,8 @@ function hasCycle(head) {
   return false;
 }
 
+
+
 /**
  * Finds the middle node of a singly linked list.
  * If there are two middle nodes (even number of nodes), returns the second middle node.
@@ -85,9 +87,27 @@ function hasCycle(head) {
 function findMiddleNode(head) {
   // TODO: Implement slow &amp; fast pointer logic here
   // Hint: Fast moves 2 steps, Slow moves 1 step. Handle edge cases (empty list, single node).
-  console.log("Input list head value (if exists):", head ? head.val : 'null');
-  return null; // Placeholder
+  // console.log("Input list head value (if exists):", head ? head.val : 'null');
+  //initiate slow and fast pointers and counter index for slow and fast?
+  //when fast gets to end, return slow pointer
+  let slow = head;
+  let fast = head;
+  while(fast && fast.next){
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow;
 }
+
+//TESTS
+console.log("\n--- findMiddleNode ---");
+let list5 = createList([1, 2, 3, 4, 5]);
+let middle5 = findMiddleNode(list5);
+console.log(middle5 ? middle5.val : null); // Expected: 3
+
+let list6 = createList([1, 2, 3, 4, 5, 6]);
+let middle6 = findMiddleNode(list6);
+console.log(middle6 ? middle6.val : null); // Expected: 4 (second middle node)
 
 /**
  * Finds the node where a cycle begins in a linked list.
@@ -128,8 +148,8 @@ return null;
 
 
 // Example Usage (Optional - uncomment and create list nodes to test)
-/*
-// --- Helper function to create a list with a cycle for testing ---
+
+ //--- Helper function to create a list with a cycle for testing ---
 function createListWithCycle(values, cyclePos) {
   if (!values || values.length === 0) return null;
   let head = new ListNode(values[0]);
@@ -156,44 +176,43 @@ function createList(values) {
     return createListWithCycle(values, -1); // -1 means no cycle
 }
 
-console.log("--- hasCycle ---");
-let list1 = createList([3, 2, 0, -4]);
-let head1 = list1;
-let curr1 = head1;
-while(curr1.next) { curr1 = curr1.next; } // Go to tail
-curr1.next = head1.next; // Create cycle: tail connects to node 2
-console.log(hasCycle(head1)); // Expected: true
+// console.log("--- hasCycle ---");
+// let list1 = createList([3, 2, 0, -4]);
+// let head1 = list1;
+// let curr1 = head1;
+// while(curr1.next) { curr1 = curr1.next; } // Go to tail
+// curr1.next = head1.next; // Create cycle: tail connects to node 2
+// console.log(hasCycle(head1)); // Expected: true
 
-let list2 = createList([1, 2]);
-let head2 = list2;
-head2.next.next = head2; // Cycle: node 2 connects to node 1
-console.log(hasCycle(head2)); // Expected: true
+// let list2 = createList([1, 2]);
+// let head2 = list2;
+// head2.next.next = head2; // Cycle: node 2 connects to node 1
+// console.log(hasCycle(head2)); // Expected: true
 
-let list3 = createList([1]);
-console.log(hasCycle(list3)); // Expected: false
+// let list3 = createList([1]);
+// console.log(hasCycle(list3)); // Expected: false
 
-let list4 = createList([1, 2, 3, 4]);
-console.log(hasCycle(list4)); // Expected: false
+// let list4 = createList([1, 2, 3, 4]);
+// console.log(hasCycle(list4)); // Expected: false
 
-console.log("\n--- findMiddleNode ---");
-let list5 = createList([1, 2, 3, 4, 5]);
-let middle5 = findMiddleNode(list5);
-console.log(middle5 ? middle5.val : null); // Expected: 3
+// console.log("\n--- findMiddleNode ---");
+// let list5 = createList([1, 2, 3, 4, 5]);
+// let middle5 = findMiddleNode(list5);
+// console.log(middle5 ? middle5.val : null); // Expected: 3
 
-let list6 = createList([1, 2, 3, 4, 5, 6]);
-let middle6 = findMiddleNode(list6);
-console.log(middle6 ? middle6.val : null); // Expected: 4 (second middle node)
+// let list6 = createList([1, 2, 3, 4, 5, 6]);
+// let middle6 = findMiddleNode(list6);
+// console.log(middle6 ? middle6.val : null); // Expected: 4 (second middle node)
 
-console.log("\n--- detectCycleStart ---");
-// Use list1 again (cycle starts at index 1, value 2)
-let startNode1 = detectCycleStart(head1);
-console.log(startNode1 ? startNode1.val : null); // Expected: 2
+// console.log("\n--- detectCycleStart ---");
+// // Use list1 again (cycle starts at index 1, value 2)
+// let startNode1 = detectCycleStart(head1);
+// console.log(startNode1 ? startNode1.val : null); // Expected: 2
 
-// Use list2 again (cycle starts at index 0, value 1)
-let startNode2 = detectCycleStart(head2);
-console.log(startNode2 ? startNode2.val : null); // Expected: 1
+// // Use list2 again (cycle starts at index 0, value 1)
+// let startNode2 = detectCycleStart(head2);
+// console.log(startNode2 ? startNode2.val : null); // Expected: 1
 
-// Use list4 again (no cycle)
-let startNode4 = detectCycleStart(list4);
-console.log(startNode4 ? startNode4.val : null); // Expected: null
-*/
+// // Use list4 again (no cycle)
+// let startNode4 = detectCycleStart(list4);
+// console.log(startNode4 ? startNode4.val : null); // Expected: null
