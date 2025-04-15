@@ -14,8 +14,22 @@ An integer is a palindrome when it reads the same forward and backward.
 - A palindrome number remains the same when its digits are reversed.
 */
 
-function isPalindrome(x) {
+//number is not iterateble, need to convert to string
+//use two pointer method to to check first equals last, if not return false
+//iterate with while loop, if exiting while loop, return true
 
+function isPalindrome(x) {
+    if ( x < 0) return false;
+    let numStr = x.toString();
+    console.log(numStr);
+    let first = 0;
+    let last = numStr.length - 1;
+    while( first < last){
+        if(numStr[first] !== numStr[last]) return false;
+        first++;
+        last--;
+    }
+    return true;
 }
 
 // ✅ Test Cases
@@ -50,6 +64,19 @@ There are two common ways to approach this problem:
 4. Check if the reversed number is equal to the original, or in case of odd digit count, equal when divided by 10.
 5. Return true if palindrome, false otherwise.
 
+function isPalindrome(x) {
+    if (x < 0 || (x % 10 === 0 && x !== 0)) return false;
+
+    let reversed = 0;
+
+    while (x > reversed) {
+        reversed = reversed * 10 + x % 10;
+        x = Math.floor(x / 10);
+    }
+
+    return x === reversed || x === Math.floor(reversed / 10);
+}
+    
 ### Why Method 2?
 - Avoids converting to a string (more space-efficient).
 - Stops early — no need to reverse the entire number.

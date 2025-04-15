@@ -15,8 +15,22 @@ You can return the answer in any order.
 - Only one valid answer exists
 */
 
+//will use hash map to track compliments, at each iteration, if compliment exists, return hash set and current index
+//if not, enter current number and index into hash map,
+//can use object for map
 function twoSum(nums, target) {
+  const seen = {};
+  for(let i = 0; i < nums.length; i++){
+    let value = nums[i];
+    let compliment = target - value;
 
+    if(compliment in seen){
+      return ([seen[compliment], i]);
+    } else {
+      seen[value] = i;
+    }
+  }
+  return null;
 }
 
 // ✅ Test Cases
