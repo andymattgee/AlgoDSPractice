@@ -128,18 +128,18 @@ function createLinkedList() {
  *
  * Here are some fundamental operations you'll often perform on linked lists:
  *
- * 1.  `push(value)` / `append(value)`: Adds a new node with the given value to the end of the list.
- * 2.  `unshift(value)` / `prepend(value)`: Adds a new node with the given value to the beginning of the list.
- * 3.  `insert(index, value)`: Inserts a new node with the given value at a specific position (index).
- * 4.  `pop()`: Removes and returns the last node from the list.
- * 5.  `shift()`: Removes and returns the first node from the list.
- * 6.  `remove(index)`: Removes the node at a specific position (index).
- * 7.  `get(index)`: Returns the node at a specific position (index).
- * 8.  `set(index, value)`: Updates the value of the node at a specific position (index).
+ * 1.  ✅`push(value)` / `append(value)`: Adds a new node with the given value to the end of the list.
+ * 2.  ✅`unshift(value)` / `prepend(value)`: Adds a new node with the given value to the beginning of the list.
+ * 3.  ✅`insert(index, value)`: Inserts a new node with the given value at a specific position (index).
+ * 4.  ✅`pop()`: Removes and returns the last node from the list.
+ * 5.  ✅`shift()`: Removes and returns the first node from the list.
+ * 6.  ✅`remove(index)`: Removes the node at a specific position (index).
+ * 7.  ✅`get(index)`: Returns the node at a specific position (index).
+ * 8.  ✅`set(index, value)`: Updates the value of the node at a specific position (index).
  * 9.  `reverse()`: Reverses the order of the nodes in the list in place.
- * 10. `print()` / `display()`: Traverses the list and prints the values of the nodes.
- * 11. `contains(value)`: Checks if a value exists within the list.
- * 12. `find(value)`: Returns the first node containing the given value.
+ * 10. ✅`print()` / `display()`: Traverses the list and prints the values of the nodes.
+ * 11. ✅`contains(value)`: Checks if a value exists within the list.
+ * 12. ✅`find(value)`: Returns the first node containing the given value.
  *
  */
 
